@@ -10,12 +10,7 @@ import requests
 from functools import partial
 
 
-"""
-from_currency = str(input("Enter first currency: ")).upper()
-to_currency = str(input("Enter second currency: ")).upper()
-amount = float(input("Enter amount: ")) 
-"""
-#amount = None
+
 
 #Conversion procedure
 def convert(entry, label, dropdown1, dropdown2):
@@ -25,7 +20,7 @@ def convert(entry, label, dropdown1, dropdown2):
     final_currency = dropdown2.get()
     
 
-    if(initial_currency != '---' and final_currency != '---'):
+    if(initial_currency != '---' and final_currency != '---' and initial_amount >= 0):
 
         if(initial_currency == final_currency or initial_amount == 0):
             label.config(text = initial_amount)
@@ -162,9 +157,7 @@ def change_appearance(theme):
         window_main.config(bg = "systemWindowBackgroundColor")
 
 
-"""
-response = requests.get(f"https://api.frankfurter.app/latest?amount={amount}&from={from_currency}&to={to_currency}")
-print(f"{amount} {from_currency} is {response.json()['rates'][to_currency]} {to_currency}") """
+
 
 
 window_main.mainloop()
